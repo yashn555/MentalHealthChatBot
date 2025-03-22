@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="title-bar">
+        <div class="user-info">
+            <span>Welcome, <strong id="username">{{ current_user.username }}</strong></span>
+        </div>
+        <div class="user-options">
+            <button onclick="openChangePasswordModal()">Change Password</button>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </div>
+
+    <div class="chat-container">
+        <!-- Sidebar for Chat History -->
+        <div class="sidebar">
+            <h3>Chat History</h3>
+            <div class="chat-history-container">
+                <ul id="chat-history"></ul>
+            </div>
+        </div>
+
+        <!-- Main Chat Interface -->
+        <div class="main">
+            <div class="chat-header">
+                <img src="{{ url_for('static', filename='avatar.png') }}" alt="Avatar" class="avatar">
+                <h2>Mental Health Chatbot</h2>
+            </div>
+
+            <!-- Chat Box -->
+            <div id="chat-box"></div>
+
+            <!-- Input Section -->
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Talk to me..." />
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <!-- Mood Tracking Chart -->
+        <div class="mood-chart-container">
+            <h3>Mood Tracking</h3>
+            <canvas id="moodChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeChangePasswordModal()">&times;</span>
+            <h2>Change Password</h2>
+            <form id="changePasswordForm">
+                <input type="password" id="currentPassword" placeholder="Current Password" required>
+                <input type="password" id="newPassword" placeholder="New Password" required>
+                <input type="password" id="confirmPassword" placeholder="Confirm New Password" required>
+                <button type="submit">Change Password</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
