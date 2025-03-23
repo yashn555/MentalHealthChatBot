@@ -32,13 +32,7 @@ MentalHealthChatBot/
 │   ├── static/
 │   │   ├── style.css
 │   │   ├── script.js
-├── database/
-│   ├── schema.sql  # Database Schema
-├── screenshots/
-│   ├── login.png
-│   ├── chatbot.png
 ├── README.md  # Project Documentation
-└── requirements.txt  # Dependencies
 ```
 
 ## 📥 Installation & Setup
@@ -62,7 +56,7 @@ pip install -r requirements.txt
 
 ### 🔹 **4. Set Up MySQL Database**
 1. Open MySQL on **phpMyAdmin (Port 3307)**
-2. Create a database: `attendancesystemmain`
+2. Create a database: `chatBot_db`
 3. Run `schema.sql` to create required tables
 
 ### 🔹 **5. Run the Flask App**
